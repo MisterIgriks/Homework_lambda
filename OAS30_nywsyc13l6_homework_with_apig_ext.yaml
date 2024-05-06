@@ -1,0 +1,42 @@
+openapi: "3.0.1"
+info:
+  title: "misterigriks"
+  version: "2024-05-06 19:07:06UTC"
+servers:
+- url: "https://nywsyc13l6.execute-api.eu-north-1.amazonaws.com/{basePath}"
+  variables:
+    basePath:
+      default: "homework"
+paths:
+  /instances/start:
+    post:
+      responses:
+        default:
+          description: "Default response for POST /instances/start"
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:590184137042:function:misterigriks-start/invocations"
+        connectionType: "INTERNET"
+        timeoutInMillis: 30000
+  /instances/stop:
+    post:
+      responses:
+        default:
+          description: "Default response for POST /instances/stop"
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:590184137042:function:misterigriks-stop/invocations"
+        connectionType: "INTERNET"
+components:
+  x-amazon-apigateway-integrations:
+    unusedIntegration_barze5h:
+      payloadFormatVersion: "2.0"
+      type: "aws_proxy"
+      httpMethod: "POST"
+      uri: "arn:aws:apigateway:eu-north-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-north-1:590184137042:function:misterigriks-start/invocations"
+      connectionType: "INTERNET"
+x-amazon-apigateway-importexport-version: "1.0"
